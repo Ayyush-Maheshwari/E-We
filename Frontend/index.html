@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./pngtree-electric-car-with-plug-cable-circle-pictograph-circle-transportation-vector-png-image_32686582.png">
+    <link rel="stylesheet" href="home.css" />
+
+    <title>E-We</title>
+</head>
+<body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let selectedVehicle = ""; 
+    const carButton = document.querySelector(".vehicle button:first-child");
+    const bikeButton = document.querySelector(".vehicle button:last-child");
+    const findRidesButton = document.querySelector(".find button");
+
+    carButton.addEventListener("click", function() {
+        selectedVehicle = "car";
+        carButton.classList.add("active");
+        carButton.focus(); 
+        bikeButton.classList.remove("active");
+    });
+
+    bikeButton.addEventListener("click", function() {
+        selectedVehicle = "bike";
+        bikeButton.classList.add("active");
+        bikeButton.focus(); 
+        carButton.classList.remove("active");
+    });
+
+    findRidesButton.addEventListener("click", function() {
+    const pickupDate = document.querySelector("#pickup-date").value;
+    const dropoffDate = document.querySelector("#dropoff-date").value;
+
+    if (pickupDate !== "" && dropoffDate !== "" && selectedVehicle !== "") {
+        const durationInDays = calculateDuration(pickupDate, dropoffDate);
+
+        // Store data in local storage
+        localStorage.setItem('rideData', JSON.stringify({
+            pickup_date: pickupDate,
+            dropoff_date: dropoffDate,
+            duration: durationInDays, // Include duration in the data
+            selectedVehicle: selectedVehicle,
+            // pickupLocation: pickupLocation
+        }));
+
+        // Redirect user to appropriate page based on selected vehicle
+        if (selectedVehicle === "car") {
+            window.location.href = "./car.html";
+        } else if (selectedVehicle === "bike") {
+            window.location.href = "./bike.html";
+        }
+    } else {
+        alert("Please select all options to find rides.");
+    }
+});
+});
+
+function calculateDuration(pickupDate, dropoffDate) {
+    const pickupDateObj = new Date(pickupDate);
+    const dropoffDateObj = new Date(dropoffDate);
+    const differenceMs = Math.abs(dropoffDateObj - pickupDateObj);
+    const differenceDays = Math.round(differenceMs / (1000 * 60 * 60 * 24));
+    return differenceDays;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const carouselItems = document.querySelectorAll('.carousel__slide');
+    carouselItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth' 
+        });
+      });
+    });
+  });
+</script>
+    <div class="background">
+      <div class="navbar">
+        <div class="nav-part1">
+          <div class="marquee">
+            <div class="track">
+              <div class="content">&nbsp;Thanks For Choosing E-We. We are currently operating only in Bengaluru. &nbsp;Thanks For Choosing E-We. We are currently operating only in Bengaluru.</div>
+            </div>
+          </div>         
+        </div>
+
+        <div class="nav-part2">
+          <a href="./ebookings.html"><div>Bookings </div> 
+          </a>
+          <a href="./ebookings.css"><div><img src="./online-booking.png" alt=""></div></a>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="first">
+          <div class="main-head">E-we</div>
+            <div class="sub-head animate-character">
+              Explore the world with comfort. <br />Ride pollution free. Go E-We
+            </div>
+            <div class="bar">
+              <div class="progress">
+                <div class="progress-value"></div>
+                <div class="pro-value">10000kg</div>
+              </div>
+              <span id="co2">Co2 Emission Saved</span>
+            </div>
+
+          </div>
+        <div class="second">
+            <div class="selection">
+              <div class="vehicle">
+                <button>
+                  <img src="./icon _car suv vehicle_.png" alt="" />
+                </button>
+                <button>
+                  <img src="./icon _Off-road Motorcycle_.png" alt="" />
+                </button>
+              </div>
+              
+              <div class="filter">
+                <div class="dates">
+                  <div class="date-box">
+                    <p><b>Pickup Date</b></p>
+<form action="">
+  <input type="date" name="pDate" id="pickup-date" />
+                  </div>
+
+               <div class="date-box">
+  <p><b>Dropoff Date</b></p>
+  <input type="date" name="dDate" id="dropoff-date" />
+
+</div>
+</form>   
+                </div>
+
+                <div class="find">
+                  
+
+                  <button id="submitbtn">Find Rides</button>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+
+        <div class="fav-sec">
+          <div class="fav-sec-cen">
+
+            <div class="fav-title"><br><h1>Our Most Loved Rides</h1><br></div>
+
+          <div class="fav-slider">
+            <div class="fav-img-sec">
+
+              <section class="carousel" aria-label="Gallery">
+               
+                <ol class="carousel__viewport">
+             
+                  <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper"><img src="./icon _car sports vehicle_.png" alt=""> <div class="carousel_name">Breez-E+</div>
+                    </div>
+                  </li>
+           
+                  <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper"><img src="./icon _Off-road Motorcycle_.png" alt=""><div class="carousel_name">Sport-E+</div></div>
+                  </li>
+       
+                  <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper"><img src="./icon _car sports_.png" alt=""><div class="carousel_name">Coup-E+</div></div>
+                  </li>
+                
+                  <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+                    <div class="carousel__snapper"><img src="./icon _Motor Scooter_.png" alt=""><div class="carousel_name">Sport-E+</div></div>
+                  </li>
+                </ol>
+              </section>
+            </div>      
+          </div>
+          </div>
+        </div>
+        
+        <div class="bottom-bar">
+          <dl>
+            <dd><a href="./ewere.html">Customer Reviews</a></dd>
+            <dd>|</dd>
+            <dd><a href="./Ewegency.html">Contact Us</a></dd>
+            <dd>|</dd>
+            <dd><a href="./about.html">About Us</a></dd>
+          </dl>
+        </div>
+      </div>
+
+      <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            let mm = today.getMonth() + 1;
+            let dd = today.getDate();
+        
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+        
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+        
+            const minDate = yyyy + '-' + mm + '-' + dd;
+            document.getElementById('pickup-date').setAttribute('min', minDate);
+            document.getElementById('dropoff-date').setAttribute('min', minDate);
+        
+            // Function to calculate the dropoff date
+            function calculateDropoffDate(pickupDate) {
+                const pickup = new Date(pickupDate);
+                const dropoff = new Date(pickup);
+                dropoff.setDate(pickup.getDate() + 1); // Set dropoff date 1 day after pickup
+                return dropoff.toISOString().split('T')[0]; // Return dropoff date in 'yyyy-mm-dd' format
+            }
+        
+            // Event listener for pickup date change
+            document.getElementById('pickup-date').addEventListener('change', function() {
+                const pickupDate = this.value;
+                if (pickupDate) {
+                    const minDropoffDate = calculateDropoffDate(pickupDate);
+                    const maxDropoffDate = new Date(pickupDate);
+                    maxDropoffDate.setDate(maxDropoffDate.getDate() + 15); // Set dropoff date 15 days after pickup
+                    const maxDateFormatted = maxDropoffDate.toISOString().split('T')[0]; // Format max dropoff date
+                    document.getElementById('dropoff-date').setAttribute('min', minDropoffDate);
+                    document.getElementById('dropoff-date').setAttribute('max', maxDateFormatted);
+                }
+            });
+        });
+        </script>
+        <script src="./progress.js"></script>
+    </div>
+
+</body>
+</html>

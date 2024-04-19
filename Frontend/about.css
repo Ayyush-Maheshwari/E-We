@@ -1,0 +1,273 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: 'Istok Web', sans-serif;
+}
+
+.background{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url(./image\ 1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+    background-color: black;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    opacity: 90%;
+}
+
+
+.nav-part1{
+    display: flex;
+    color: azure;
+    font-weight: 700;
+    text-decoration: none;
+    width: 100%;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.contact div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+#call-img{
+    height: 32px;
+}
+
+.contact a{
+    color: azure;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#mail-img{
+    height: 33px;
+    padding-left: 70px;
+}
+
+.email{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email a{
+    color: azure;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-part2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-part2 div {
+    margin-right: 27px;
+}
+
+.nav-part2 div:nth-child(1){
+    color: azure;
+    font-weight: 700;
+}
+
+.nav-part2 img{
+    height: 28px;
+}
+
+.marquee {
+    position: relative;
+    width: 60vw;
+    max-width: 50%;
+    /* height: 200px; */
+    overflow-x: hidden;
+  }
+
+  .track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 15s linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+
+
+.main-container{
+    align-items: center;
+    width: 100%;
+    margin-top: 20px; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 30px;
+}
+
+
+
+.main-head{
+    padding-top: 70px;
+    padding-left: 40px;
+    font-size: 150px;
+    color: #a9d96f;
+    font-weight: 700;
+    -webkit-text-stroke: 3px black;
+}
+
+.sub-head{
+    color: azure;
+    font-size: 30px;
+    padding-left: 50px;
+    line-height: 55px;
+}
+
+.bottom-bar{
+    width:90%;
+}
+
+.bottom-bar dl{
+    color: azure;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.container{
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.65);
+    border-radius: 20px;
+}
+
+h2{
+    color: azure;
+    text-align: center;
+    text-decoration: underline azure;
+}
+
+.support{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.support ul{
+    color: #a9d96f;
+    font-weight: 700;
+    font-size: 25px;
+    
+}
+
+.support li{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: azure;
+}
+
+.bottom-bar a:hover{
+    color: #a9d96f;
+
+}
+
+.us{
+    width: 51%;
+    height: 100px;
+    background-color: black;
+    opacity: 80%;
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    font-size: small;
+    align-items: center;
+    display: flex;
+}
+
+.us img{
+    width: 100px;
+}
+
+span{
+    color: #a9d96f;
+    font-weight: 700;
+    font-size: larger;
+
+}
+
+.us:hover{
+    border-color: #a9d96f;
+    border-style: double;
+    border-width: 4px;
+    cursor: pointer;
+}
+
+.team h1{
+    color: white;
+
+}
+
+.team a{
+    color: #a9d96f;
+}
+
+.team a:hover{
+    filter: brightness(110%);
+}
+
+#about-btn
+{
+color: #a9d96f;
+}
+
+#about-btn:hover{
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px){
+    .navbar{
+        font-size: x-small;
+        margin: none;
+        padding:0;
+    }
+
+    .navbar img{
+        width: 27px;
+    }
+
+    .bottom-bar{
+        font-size: small;
+    }
+
+    .nav-part2 div {
+        margin-right: 10px;
+    }
+}

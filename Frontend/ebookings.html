@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./pngtree-electric-car-with-plug-cable-circle-pictograph-circle-transportation-vector-png-image_32686582.png">
+    <link rel="stylesheet" href="ebookings.css" />
+    <title>E-We</title>
+ 
+</head>
+<body>
+    <div class="background">
+        <div class="bg">
+          <div class="navbar">
+            <div class="nav-part1">
+              <div class="marquee">
+                <div class="track">
+                  <div class="content">&nbsp;Thanks For Choosing E-We. We are currently operating only in Bengaluru. &nbsp;Thanks For Choosing E-We. We are currently operating only in Bengaluru.</div>
+                </div>
+              </div>
+            </div>  
+            <div class="nav-part2">
+              <a href="./ebookings.html"><div>Bookings </div> 
+              </a>
+              <a href="./ebookings.css"><div><img src="./online-booking.png" alt=""></div></a>
+            </div>
+          </div>
+    
+          <div class="main-container">
+            <h2><a href="./index.html" id="head">E-We</a> Bookings </h2>
+            <div class="container">     
+                <div id="bookingsContainer"></div>
+            <div class="login-btn">
+                  <a href="./login.html"><button><b>Login</b></button></a>
+            </div>
+            </div>
+  
+          </div>
+          <div class="bottom-bar">
+            <dl>
+              <dd><a href="./ewere.html">Customer Reviews</a></dd>
+              <dd>|</dd>
+              <dd><a href="./Ewegency.html">Contact Us</a></dd>
+              <dd>|</dd>
+              <dd><a href="./about.html">About Us</a></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const bookingsContainer = document.getElementById('bookingsContainer');
+
+    const fetchBookingsData = () => {
+        fetch('http://localhost:5500/bookings')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const bookingsList = document.createElement('ul');
+
+                data.forEach(booking => {
+                    
+                    const pickupDate = new Date(booking.pickup_date).toLocaleDateString('en-IN');
+                    const dropoffDate = new Date(booking.dropoff_date).toLocaleDateString('en-IN');
+
+                    const bookingItem = document.createElement('li');
+                    bookingItem.textContent = `Vehicle No.: ${booking.vehicle_no} | Pickup Date: ${pickupDate} | Dropoff Date: ${dropoffDate} | Total: ₹${booking.total}`;
+                    bookingsList.appendChild(bookingItem);
+                });
+
+                bookingsContainer.appendChild(bookingsList);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+    };
+
+    fetchBookingsData();
+
+    const refreshFlag = localStorage.getItem('refreshPage');
+    if (refreshFlag === 'true') {
+        localStorage.removeItem('refreshPage'); // Remove the flag
+        location.reload(); // Refresh the page
+    }
+});
+
+      </script>
+</body>
+</html>
